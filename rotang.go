@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 // Package rotang handles the scheduling of oncall rotations.
-package rotang
+package rotang // import "chromium.googlesource.com/infra/rotang"
 
 import (
 	"net/http"

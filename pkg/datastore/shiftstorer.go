@@ -1,7 +1,7 @@
 package datastore
 
 import (
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"sort"
 	"time"
 

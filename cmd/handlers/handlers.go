@@ -6,22 +6,20 @@ package handlers
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
-	"infra/appengine/rotang"
-	"infra/appengine/rotang/pkg/algo"
 	"net/http"
 	"time"
 
-	"context"
-
+	"chromium.googlesource.com/infra/rotang"
+	"chromium.googlesource.com/infra/rotang/pkg/algo"
 	"go.chromium.org/luci/server/auth"
 	"go.chromium.org/luci/server/router"
 	"go.chromium.org/luci/server/templates"
 	"google.golang.org/appengine"
+	aeuser "google.golang.org/appengine/user"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-
-	aeuser "google.golang.org/appengine/user"
 )
 
 var mtvTime = func() *time.Location {

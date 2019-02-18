@@ -1,14 +1,13 @@
 package datastore
 
 import (
-	"infra/appengine/rotang"
-	"infra/appengine/rotang/pkg/algo"
+	"context"
 	"sort"
 	"testing"
 	"time"
 
-	"context"
-
+	"chromium.googlesource.com/infra/rotang"
+	"chromium.googlesource.com/infra/rotang/pkg/algo"
 	"github.com/kylelemons/godebug/pretty"
 )
 

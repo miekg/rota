@@ -8,9 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"infra/appengine/rotang"
-	"infra/appengine/rotang/pkg/jsoncfg"
-
+	"chromium.googlesource.com/infra/rotang"
+	"chromium.googlesource.com/infra/rotang/pkg/jsoncfg"
 	"github.com/kylelemons/godebug/pretty"
 )
 

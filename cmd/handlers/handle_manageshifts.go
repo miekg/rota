@@ -3,7 +3,7 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"net/http"
 	"time"
 

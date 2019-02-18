@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"net/http"
 	"time"
 

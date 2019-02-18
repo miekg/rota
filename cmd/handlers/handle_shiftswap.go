@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"net/http"
 
 	"go.chromium.org/luci/server/auth"

@@ -1,6 +1,6 @@
 package algo
 
-import "infra/appengine/rotang"
+import "chromium.googlesource.com/infra/rotang"
 
 // SplitShift splits shifts into single day shifts.
 type SplitShift struct {

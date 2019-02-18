@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 
 	"github.com/kylelemons/godebug/pretty"
 )

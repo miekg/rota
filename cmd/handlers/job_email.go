@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"bytes"
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"net/http"
 	"text/template"
 	"time"

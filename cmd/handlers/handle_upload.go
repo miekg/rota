@@ -10,8 +10,7 @@ import (
 	"net/http"
 	"strings"
 
-	"infra/appengine/rotang/pkg/jsoncfg"
-
+	"chromium.googlesource.com/infra/rotang/pkg/jsoncfg"
 	"go.chromium.org/luci/common/logging"
 	"go.chromium.org/luci/server/router"
 	"go.chromium.org/luci/server/templates"

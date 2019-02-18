@@ -3,11 +3,11 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
-	"infra/appengine/rotang"
 	"io"
 	"net/http"
 	"time"
 
+	"chromium.googlesource.com/infra/rotang"
 	"go.chromium.org/luci/common/clock"
 	"go.chromium.org/luci/server/router"
 )

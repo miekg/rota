@@ -8,7 +8,7 @@
 package algo
 
 import (
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"math/rand"
 	"testing"
 	"time"

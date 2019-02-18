@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 
 	"context"
 

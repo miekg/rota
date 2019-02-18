@@ -2,7 +2,7 @@ package datastore
 
 import (
 	"context"
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"net/http"
 
 	"go.chromium.org/gae/service/datastore"

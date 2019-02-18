@@ -1,19 +1,17 @@
 package calendar
 
 import (
-	"infra/appengine/rotang"
-	"infra/appengine/rotang/pkg/datastore"
+	"context"
 	"net/http"
 	"testing"
 	"time"
 
-	"context"
-
+	"chromium.googlesource.com/infra/rotang"
+	"chromium.googlesource.com/infra/rotang/pkg/datastore"
 	"github.com/kylelemons/godebug/pretty"
 	"go.chromium.org/luci/appengine/gaetesting"
 	"go.chromium.org/luci/server/router"
 	"golang.org/x/oauth2"
-
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 

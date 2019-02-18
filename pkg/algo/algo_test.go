@@ -5,7 +5,7 @@
 package algo
 
 import (
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"sort"
 	"strings"
 	"testing"

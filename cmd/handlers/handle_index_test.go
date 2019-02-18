@@ -6,12 +6,12 @@ package handlers
 
 import (
 	"context"
-	"infra/appengine/rotang"
-	"infra/appengine/rotang/pkg/datastore"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
+	"chromium.googlesource.com/infra/rotang"
+	"chromium.googlesource.com/infra/rotang/pkg/datastore"
 	"go.chromium.org/luci/auth/identity"
 	"go.chromium.org/luci/server/auth"
 	"go.chromium.org/luci/server/auth/authtest"

@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 	"testing"
 )
 

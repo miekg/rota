@@ -5,17 +5,16 @@
 package handlers
 
 import (
-	"infra/appengine/rotang"
-	"infra/appengine/rotang/pkg/algo"
-	"infra/appengine/rotang/pkg/calendar"
-	"infra/appengine/rotang/pkg/datastore"
+	"context"
 	"net/http"
 	"strconv"
 	"testing"
 	"time"
 
-	"context"
-
+	"chromium.googlesource.com/infra/rotang"
+	"chromium.googlesource.com/infra/rotang/pkg/algo"
+	"chromium.googlesource.com/infra/rotang/pkg/calendar"
+	"chromium.googlesource.com/infra/rotang/pkg/datastore"
 	"go.chromium.org/luci/appengine/gaetesting"
 	"go.chromium.org/luci/server/router"
 	"google.golang.org/grpc/codes"

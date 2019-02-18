@@ -5,9 +5,10 @@
 package algo
 
 import (
-	"infra/appengine/rotang"
 	"sort"
 	"time"
+
+	"chromium.googlesource.com/infra/rotang"
 )
 
 // Fair implements a rota Generator trying to be fair when scheduling shifts.

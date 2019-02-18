@@ -10,7 +10,7 @@ import (
 	"sort"
 	"time"
 
-	"infra/appengine/rotang"
+	"chromium.googlesource.com/infra/rotang"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
