@@ -23,3 +23,8 @@ deploy-staging: buildjs
 
 deploy-prod: buildjs
 	gcloud app deploy cmd/app/app_prod.yaml  --project rota-ng
+
+make deploy: clean
+	gcloud --project=chrome-infra-spinnaker builds submit \
+		--async \
+		--config=cloudbuild.yaml

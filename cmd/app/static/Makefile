@@ -9,4 +9,4 @@ build: deps
 	npx webpack
 
 clean:
-	rm dist/bundle.js
+	rm -f dist/bundle.js
