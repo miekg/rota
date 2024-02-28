@@ -25,6 +25,7 @@ func main() {
 	for i := range smembers {
 		members[i] = rotang.Member{Email: smembers[i].Email}
 	}
+	members[0].Preferences = []rotang.Preference{rotang.NoOncall}
 
 	gs := algo.New()
 	gs.Register(algo.NewFair())
