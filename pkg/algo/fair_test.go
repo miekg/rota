@@ -6,12 +6,12 @@ package algo
 
 import (
 	"fmt"
-	"chromium.googlesource.com/infra/rotang"
 	"math/rand"
 	"testing"
 	"time"
 
 	"github.com/kylelemons/godebug/pretty"
+	rotang "github.com/miek/rota"
 )
 
 var midnight = time.Date(2006, 8, 2, 0, 0, 0, 0, time.UTC)

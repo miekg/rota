@@ -1,11 +1,11 @@
 package algo
 
 import (
-	"chromium.googlesource.com/infra/rotang"
 	"testing"
 	"time"
 
 	"github.com/kylelemons/godebug/pretty"
+	rotang "github.com/miek/rota"
 )
 
 func TestSplitShiftModify(t *testing.T) {

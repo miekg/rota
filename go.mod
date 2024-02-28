@@ -1,6 +1,6 @@
-module chromium.googlesource.com/infra/rotang
+module github.com/miek/rota
 
-go 1.12
+go 1.22
 
 require (
 	github.com/dustin/go-humanize v1.0.0 // indirect

@@ -1,8 +1,9 @@
 package algo
 
 import (
-	"chromium.googlesource.com/infra/rotang"
 	"time"
+
+	rotang "github.com/miek/rota"
 )
 
 // WeekendSkip implements the ShiftModifier interface.
@@ -28,34 +29,38 @@ func (w *WeekendSkip) Description() string {
 
 // Modify modifies provided shifts to avoid weekends.
 // Eg.
-//   Shift Fri - Sat
-// Will be split up in to two shifts.
-//  Shift1 - Fri
-//  Shift2 - Monday
 //
-//  A shift generated for 'Sat - Sun'
-//	Will be moved forward to Mon - Tue
+//	Shift Fri - Sat
+//
+// Will be split up in to two shifts.
+//
+//	 Shift1 - Fri
+//	 Shift2 - Monday
+//
+//	 A shift generated for 'Sat - Sun'
+//		Will be moved forward to Mon - Tue
 //
 // All shifts following a modified shift will be moved accordingly.
 // Eg.
-//     Shift  Days
-//      1     Mon - Tue
-//      2     Wed - Thu
-//      3     Fri - Sat
-//      4     Sun - Mon
-//      5     Tue - Wed
-//			6			Thu - Fri
+//
+//	    Shift  Days
+//	     1     Mon - Tue
+//	     2     Wed - Thu
+//	     3     Fri - Sat
+//	     4     Sun - Mon
+//	     5     Tue - Wed
+//				6			Thu - Fri
 //
 // Turns in to:
 //
-//		Shift		Days
-//		  1			Mon - Tue
-//			2			Wed - Thu
-//			3			Friday
-//			4			Monday
-//			5			Tue - Wed
-//			6     Thu - Fri
-//			7			Mon - Tue
+//	Shift		Days
+//	  1			Mon - Tue
+//		2			Wed - Thu
+//		3			Friday
+//		4			Monday
+//		5			Tue - Wed
+//		6     Thu - Fri
+//		7			Mon - Tue
 func (w *WeekendSkip) Modify(sc *rotang.ShiftConfig, shifts []rotang.ShiftEntry) ([]rotang.ShiftEntry, error) {
 	for i := 0; i < len(shifts); i++ {
 		start, end := shifts[i].StartTime.In(&sc.TZ), shifts[i].EndTime.In(&sc.TZ)

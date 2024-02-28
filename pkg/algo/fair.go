@@ -8,7 +8,7 @@ import (
 	"sort"
 	"time"
 
-	"chromium.googlesource.com/infra/rotang"
+	rotang "github.com/miek/rota"
 )
 
 // Fair implements a rota Generator trying to be fair when scheduling shifts.

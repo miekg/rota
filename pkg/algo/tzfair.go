@@ -1,12 +1,11 @@
 package algo
 
 import (
-	"chromium.googlesource.com/infra/rotang"
+	"fmt"
 	"sort"
 	"time"
 
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
+	rotang "github.com/miek/rota"
 )
 
 // TZFair implements a rota Generator scheduling members according to their timezones.
@@ -64,13 +63,15 @@ func (t *TZFair) Name() string {
 // one member per TZ slice.
 //
 // tzShifts:
+//
 //	"Australia/Sydney"  -> tzShifts[0][]rotang.ShiftEntry{...OnCall: "A@A.com"...}
 //	"EST"               -> tzShifts[1][]rotang.ShiftEntry{...OnCall: "B@B.com"...}
 //	"US/Pacific"        -> tzShifts[2][]rotang.ShiftEntry{...OnCall: "C@C.com"...}
 //	"UTC"               -> tzShifts[3][]rotang.ShiftEntry{...OnCall: "D@D.com"...}
 //
 // Turns into:
-//  []rotang.ShiftEntry{...OnCall: []{"A@A.com", "B@B.com", "C@C.com", "D@D.com"}
+//
+//	[]rotang.ShiftEntry{...OnCall: []{"A@A.com", "B@B.com", "C@C.com", "D@D.com"}
 func tzSlice(tzShifts [][]rotang.ShiftEntry) ([]rotang.ShiftEntry, error) {
 	if len(tzShifts) < 1 || len(tzShifts[0]) < 1 {
 		return nil, nil
@@ -81,7 +82,7 @@ func tzSlice(tzShifts [][]rotang.ShiftEntry) ([]rotang.ShiftEntry, error) {
 	firstLen := len(tzShifts[0])
 	for i := 0; i < len(tzShifts); i++ {
 		if len(tzShifts[i]) != firstLen {
-			return nil, status.Errorf(codes.InvalidArgument, "shifts not same length")
+			return nil, fmt.Errorf("shifts not same length")
 		}
 	}
 	for si := range tzShifts[0] {

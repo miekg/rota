@@ -5,8 +5,9 @@
 package algo
 
 import (
-	"chromium.googlesource.com/infra/rotang"
 	"time"
+
+	rotang "github.com/miek/rota"
 )
 
 // RandomGen implement a rota Generator scheduling random members to shifts.

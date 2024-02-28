@@ -3,15 +3,17 @@
 // found in the LICENSE file.
 
 // See: bugs.chromium.org/p/chromium/issues/detail?id=878462
+//go:build !386
 // +build !386
 
 package algo
 
 import (
-	"chromium.googlesource.com/infra/rotang"
 	"math/rand"
 	"testing"
 	"time"
+
+	rotang "github.com/miek/rota"
 
 	"github.com/kylelemons/godebug/pretty"
 )

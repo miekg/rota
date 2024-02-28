@@ -1,9 +1,10 @@
 package algo
 
 import (
-	"chromium.googlesource.com/infra/rotang"
 	"testing"
 	"time"
+
+	rotang "github.com/miek/rota"
 
 	"github.com/kylelemons/godebug/pretty"
 )

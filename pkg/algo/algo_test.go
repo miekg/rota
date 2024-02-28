@@ -5,13 +5,13 @@
 package algo
 
 import (
-	"chromium.googlesource.com/infra/rotang"
 	"sort"
 	"strings"
 	"testing"
 	"time"
 
 	"github.com/kylelemons/godebug/pretty"
+	rotang "github.com/miek/rota"
 )
 
 type testGenerator struct {

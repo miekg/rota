@@ -3,17 +3,14 @@
 // found in the LICENSE file.
 
 // Package rotang handles the scheduling of oncall rotations.
-package rotang // import "chromium.googlesource.com/infra/rotang"
+package rotang
 
 import (
-	"net/http"
 	"time"
 
 	"context"
 
-	"go.chromium.org/gae/service/mail"
 	"go.chromium.org/luci/server/router"
-	"golang.org/x/oauth2"
 )
 
 // Rota represents a named rotation and it's shift entries.
@@ -36,7 +33,7 @@ type Config struct {
 	Description      string
 	Calendar         string
 	TokenID          string
-	Owners           []string // TODO(olakar): Change from email to groups.
+	Owners           []string
 	Email            Email
 	ShiftsToSchedule int
 	Shifts           ShiftConfig
@@ -177,26 +174,6 @@ type MemberStorer interface {
 	DeleteMember(ctx context.Context, email string) error
 }
 
-// TokenStorer is used to store OAuth2 tokens.
-type TokenStorer interface {
-	CreateToken(ctx context.Context, id, config string, token *oauth2.Token) error
-	Token(ctx context.Context, id string) (*oauth2.Token, error)
-	Client(ctx *router.Context, id string) (*http.Client, error)
-	DeleteToken(ctx context.Context, id string) error
-}
-
-// ShiftStorer is used to store Shift entries.
-type ShiftStorer interface {
-	AddShifts(ctx context.Context, rota string, entries []ShiftEntry) error
-	AllShifts(cxt context.Context, rota string) ([]ShiftEntry, error)
-	ShiftsFromTo(ctx context.Context, rota string, from, to time.Time) ([]ShiftEntry, error)
-	Shift(cxt context.Context, rota string, start time.Time) (*ShiftEntry, error)
-	DeleteAllShifts(ctx context.Context, rota string) error
-	DeleteShift(ctx context.Context, rota string, start time.Time) error
-	UpdateShift(ctx context.Context, rota string, shift *ShiftEntry) error
-	Oncall(ctx context.Context, at time.Time, rota string) (*ShiftEntry, error)
-}
-
 // RotaGenerator is used to generate oncall rotations.
 type RotaGenerator interface {
 	Name() string
@@ -208,11 +185,6 @@ type ShiftModifier interface {
 	Name() string
 	Description() string
 	Modify(sc *ShiftConfig, shifts []ShiftEntry) ([]ShiftEntry, error)
-}
-
-// MailSender is used to send E-mails.
-type MailSender interface {
-	Send(context.Context, *mail.Message) error
 }
 
 // Calenderer is used to handle the shared rota calendars.

@@ -6,12 +6,11 @@
 package algo
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
 
-	"chromium.googlesource.com/infra/rotang"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
+	rotang "github.com/miek/rota"
 )
 
 var mtvTime = func() *time.Location {
@@ -66,7 +65,7 @@ func (a *Generators) RegisterModifier(modifier rotang.ShiftModifier) {
 func (a *Generators) Fetch(name string) (rotang.RotaGenerator, error) {
 	gen, ok := a.registred[name]
 	if !ok {
-		return nil, status.Errorf(codes.NotFound, "algorithm: %q not found", name)
+		return nil, fmt.Errorf("algorithm: %q not found", name)
 	}
 	return gen, nil
 }
@@ -75,7 +74,7 @@ func (a *Generators) Fetch(name string) (rotang.RotaGenerator, error) {
 func (a *Generators) FetchModifier(name string) (rotang.ShiftModifier, error) {
 	mod, ok := a.shiftModifier[name]
 	if !ok {
-		return nil, status.Errorf(codes.NotFound, "modifier: %q not found", name)
+		return nil, fmt.Errorf("modifier: %q not found", name)
 	}
 	return mod, nil
 }
