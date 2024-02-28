@@ -12,14 +12,20 @@ import (
 var smembers = []rotang.ShiftMember{
 	{Email: "miek.gieben@ru.nl", ShiftName: "postmaster"},
 	{Email: "bram.daams@ru.nl", ShiftName: "postmaster"},
-}
-
-var members = []rotang.Member{
-	{Email: "miek.gieben@ru.nl"},
-	{Email: "bram.daams@ru.nl"},
+	{Email: "ben.polman@science.ru.nl", ShiftName: "postmaster"},
+	{Email: "eric.liefers@science.ru.nl", ShiftName: "postmaster"},
+	{Email: "simon.oosthoek@science.ru.nl", ShiftName: "postmaster"},
+	{Email: "tobias.kunnen@science.ru.nl", ShiftName: "postmaster"},
+	{Email: "wim.janssen@science.ru.nl", ShiftName: "postmaster"},
+	{Email: "peter.vancampen@science.ru.nl", ShiftName: "postmaster"},
 }
 
 func main() {
+	members := make([]rotang.Member, len(smembers))
+	for i := range smembers {
+		members[i] = rotang.Member{Email: smembers[i].Email}
+	}
+
 	gs := algo.New()
 	gs.Register(algo.NewFair())
 	gs.Register(algo.NewRandomGen())
@@ -49,7 +55,7 @@ func main() {
 		Members: smembers,
 	}
 
-	ss, err := g.Generate(sc, time.Now(), nil, members, 3)
+	ss, err := g.Generate(sc, time.Now(), nil, members, 5)
 	if err != nil {
 		log.Fatal(err)
 	}
