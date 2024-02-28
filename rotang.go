@@ -6,7 +6,6 @@
 package rotang
 
 import (
-	"context"
 	"time"
 )
 
@@ -134,40 +133,6 @@ const (
 	NoSunday
 	NoOncall
 )
-
-// ConfigStorer defines the Store interface.
-type ConfigStorer interface {
-	// CreateRotaConfig stores a Configuration in backend storage.
-	CreateRotaConfig(ctx context.Context, cfg *Configuration) error
-	// UpdateRotaConfig updates the specified configuration.
-	UpdateRotaConfig(ctx context.Context, cfg *Configuration) error
-	// RotaConfig fetches the specified rota Configuration from backend storage.
-	// Leaving `name` empty will return a slice of all stored rota configurations.
-	RotaConfig(ctx context.Context, name string) ([]*Configuration, error)
-	// DeleteRotaConfig removes the specified rota from backend storage.
-	DeleteRotaConfig(ctx context.Context, name string) error
-	// AddRotaMember add a member to the backend store.
-	AddRotaMember(ctx context.Context, rota string, member *ShiftMember) error
-	// DeleteRotaMember deletes the specified member from backend storage.
-	DeleteRotaMember(ctx context.Context, rota, email string) error
-	// MemberOf returns the rotations the specified email is a member of.
-	MemberOf(ctx context.Context, email string) ([]string, error)
-	// EnableRota enables jobs to consider rotation.
-	EnableRota(ctx context.Context, rota string) error
-	// DisableRota disables jobs for rotation.
-	DisableRota(ctx context.Context, rota string) error
-	// RotaEnabled returns the Enabled state of a rota.
-	RotaEnabled(ctx context.Context, rota string) (bool, error)
-}
-
-// MemberStorer defines the member store interface.
-type MemberStorer interface {
-	Member(ctx context.Context, email string) (*Member, error)
-	AllMembers(ctx context.Context) ([]Member, error)
-	CreateMember(ctx context.Context, member *Member) error
-	UpdateMember(cxt context.Context, in *Member) error
-	DeleteMember(ctx context.Context, email string) error
-}
 
 // RotaGenerator is used to generate oncall rotations.
 type RotaGenerator interface {

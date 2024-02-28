@@ -141,16 +141,27 @@ func HandleShiftEntries(sc *rotang.Configuration, shifts []rotang.ShiftEntry) []
 func HandleShiftMembers(sc *rotang.Configuration, cm []rotang.Member) [][]rotang.Member {
 	shiftMap := make(map[string][]rotang.Member)
 	emailToShift := make(map[string]string)
+	fmt.Printf("in %+v\n", sc.Members)
+	fmt.Printf("in %+v\n", cm)
+	fmt.Println()
 	for _, sm := range sc.Members {
 		emailToShift[sm.Email] = sm.ShiftName
 	}
 	for _, m := range cm {
 		shiftMap[emailToShift[m.Email]] = append(shiftMap[emailToShift[m.Email]], m)
 	}
+
+	fmt.Printf("shiftMap %+v\n", shiftMap)
+	fmt.Printf("emailToShift %+v\n", emailToShift)
+	fmt.Println()
+
 	var res [][]rotang.Member
 	for _, s := range sc.Config.Shifts.Shifts {
+		println(s.Name)
 		res = append(res, shiftMap[s.Name])
 	}
+	fmt.Printf("rotang mermber %v\n", res)
+	fmt.Println()
 	return res
 }
 
