@@ -1,9 +1,0 @@
-steps:
-  - name: 'gcr.io/chrome-infra-spinnaker/base'
-    args: ['make', 'buildjs']
-  - name: 'gcr.io/chrome-infra-spinnaker/tar'
-    args: ['cf', '$BUILD_ID.tar', '.']
-artifacts:
-  objects:
-    location: 'gs://chrome-infra-builds/rota-ng'
-    paths: ['$BUILD_ID.tar']
