@@ -6,11 +6,8 @@
 package rotang
 
 import (
-	"time"
-
 	"context"
-
-	"go.chromium.org/luci/server/router"
+	"time"
 )
 
 // Rota represents a named rotation and it's shift entries.
@@ -185,17 +182,6 @@ type ShiftModifier interface {
 	Name() string
 	Description() string
 	Modify(sc *ShiftConfig, shifts []ShiftEntry) ([]ShiftEntry, error)
-}
-
-// Calenderer is used to handle the shared rota calendars.
-type Calenderer interface {
-	CreateEvent(ctx *router.Context, cfg *Configuration, shifts []ShiftEntry, sendUpdates bool) ([]ShiftEntry, error)
-	Event(ctx *router.Context, cfg *Configuration, shift *ShiftEntry) (*ShiftEntry, error)
-	Events(ctx *router.Context, cfg *Configuration, from, to time.Time) ([]ShiftEntry, error)
-	UpdateEvent(ctx *router.Context, cfg *Configuration, updated *ShiftEntry) (*ShiftEntry, error)
-	DeleteEvent(ctx *router.Context, cfg *Configuration, shift *ShiftEntry) error
-	TrooperOncall(ctx *router.Context, calid, match string, t time.Time) ([]string, error)
-	TrooperShifts(ctx *router.Context, calid, match string, from, to time.Time) ([]ShiftEntry, error)
 }
 
 // Info contains information used to fill in Email Subject/Body and Calendar descriptions.
