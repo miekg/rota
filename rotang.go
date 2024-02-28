@@ -28,8 +28,6 @@ type Configuration struct {
 type Config struct {
 	Name             string
 	Description      string
-	Calendar         string
-	TokenID          string
 	Owners           []string
 	Email            Email
 	ShiftsToSchedule int
