@@ -105,7 +105,7 @@ func ShiftStartEnd(start time.Time, shiftNumber, shiftIdx int, sc *rotang.ShiftC
 	return shiftStart.In(start.Location()), shiftEnd.In(start.Location())
 }
 
-// PersonalOutage checks the users OOO entries before scheduling a rotation.
+// PersonalOutage checks the user's OOO entries before scheduling a rotation.
 func PersonalOutage(shiftStart time.Time, shiftDays int, shiftDuration time.Duration, member rotang.Member) bool {
 	for _, outage := range member.OOO {
 		for i := 0; i < shiftDays; i++ {
@@ -118,6 +118,17 @@ func PersonalOutage(shiftStart time.Time, shiftDays int, shiftDuration time.Dura
 		}
 	}
 	return false
+}
+
+// PersonalPreference checks the user's preferences before scheduling a rotation.
+func PersonalPreference(shiftStart time.Time, shiftDays int, shiftDuration time.Duration, member rotang.Member) bool {
+	for _, pref := range member.Preferences {
+		switch pref {
+		case rotang.NoOncall:
+			return false
+		}
+	}
+	return true
 }
 
 // HandleShiftEntries is a helper function to split up a slice of ShiftEntries into a slice for each
@@ -194,6 +205,9 @@ func MakeShifts(sc *rotang.Configuration, start time.Time, membersByShift [][]ro
 				propMember := shiftMembers[0]
 				shiftMembers = shiftMembers[1:]
 				if PersonalOutage(shiftStart, sc.Config.Shifts.Length, sc.Config.Shifts.Shifts[shiftIdx].Duration, propMember) {
+					continue
+				}
+				if !PersonalPreference(shiftStart, sc.Config.Shifts.Length, sc.Config.Shifts.Shifts[shiftIdx].Duration, propMember) {
 					continue
 				}
 				se.OnCall = append(se.OnCall, rotang.ShiftMember{
