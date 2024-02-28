@@ -7,13 +7,11 @@ package jsoncfg
 
 import (
 	"encoding/json"
+	"fmt"
 	"sort"
 	"time"
 
 	rotang "github.com/miekg/rota"
-
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
 )
 
 const defaultTokenID = "test@admin"
@@ -86,7 +84,7 @@ func handleJSON(data []byte) (*JSONRota, error) {
 			return nil, err
 		}
 		if len(multiConf.Configuration) != 1 {
-			return nil, status.Errorf(codes.Unimplemented, "support for multiple configurations not implemented")
+			return nil, fmt.Errorf("support for multiple configurations not implemented")
 		}
 		jsonRota.Configuration = multiConf.Configuration[0]
 		jsonRota.PSTRotation = multiConf.PSTRotation
