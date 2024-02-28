@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/kylelemons/godebug/pretty"
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 func TestSplitShiftModify(t *testing.T) {

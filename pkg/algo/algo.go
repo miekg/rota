@@ -10,7 +10,7 @@ import (
 	"math/rand"
 	"time"
 
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 var mtvTime = func() *time.Location {

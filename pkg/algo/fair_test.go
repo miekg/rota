@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/kylelemons/godebug/pretty"
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 var midnight = time.Date(2006, 8, 2, 0, 0, 0, 0, time.UTC)

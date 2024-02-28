@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/kylelemons/godebug/pretty"
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 type testGenerator struct {

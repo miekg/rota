@@ -1,4 +1,4 @@
-module github.com/miek/rota
+module github.com/miekg/rota
 
 go 1.22
 

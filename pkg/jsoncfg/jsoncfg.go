@@ -10,7 +10,7 @@ import (
 	"sort"
 	"time"
 
-	"chromium.googlesource.com/infra/rotang"
+	rotang "github.com/miekg/rota"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -119,7 +119,8 @@ func handleJSONMembers(loc *time.Location, members []rotang.Member) ([]rotang.Me
 }
 
 // BuildConfigurationFromJSON converts the Sheriff json configuration
-//  to the native rota configuration.
+//
+//	to the native rota configuration.
 func BuildConfigurationFromJSON(data []byte) (*rotang.Configuration, []rotang.Member, error) {
 	jsonRota, err := handleJSON(data)
 	if err != nil {

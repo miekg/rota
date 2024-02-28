@@ -1,6 +1,6 @@
 package algo
 
-import rotang "github.com/miek/rota"
+import rotang "github.com/miekg/rota"
 
 // SplitShift splits shifts into single day shifts.
 type SplitShift struct {

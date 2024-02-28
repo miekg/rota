@@ -8,9 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"chromium.googlesource.com/infra/rotang"
-
 	"github.com/kylelemons/godebug/pretty"
+	rotang "github.com/miekg/rota"
 )
 
 var (

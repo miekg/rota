@@ -8,12 +8,11 @@ import (
 	"sort"
 	"time"
 
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 // Fair implements a rota Generator trying to be fair when scheduling shifts.
-type Fair struct {
-}
+type Fair struct{}
 
 var _ rotang.RotaGenerator = &Fair{}
 

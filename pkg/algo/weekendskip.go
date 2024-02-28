@@ -3,7 +3,7 @@ package algo
 import (
 	"time"
 
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 // WeekendSkip implements the ShiftModifier interface.

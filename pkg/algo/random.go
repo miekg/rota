@@ -7,7 +7,7 @@ package algo
 import (
 	"time"
 
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 // RandomGen implement a rota Generator scheduling random members to shifts.

@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 
 	"github.com/kylelemons/godebug/pretty"
 )

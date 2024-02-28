@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	rotang "github.com/miek/rota"
+	rotang "github.com/miekg/rota"
 )
 
 // TZFair implements a rota Generator scheduling members according to their timezones.
